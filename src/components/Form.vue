@@ -1,8 +1,8 @@
 <template>
-    <form id="form" @submit="addTodo">
-      <label for="todo" class="todoLabel">Today I Have To...</label>
-      <input type="text" v-model="text" placeholder="type your todo here" id="todo" class="todoInput">
-      <input type="submit" value="Vue Todo" class="submitBtn"/>
+    <form id="form" @submit="searchIamge">
+      <label for="search" class="todoLabel">Search Images</label>
+      <input type="text" v-model="text" placeholder="search images here" id="search" class="searchInput">
+      <input type="submit" value="Vue Image" class="submitBtn"/>
     </form>
 </template>
 
@@ -12,20 +12,20 @@
 export default {
   data() {
     return {
-      text: ""
+      images: []
     }
   },
   methods: {
-    addTodo(e){
+    searchImages(e){
       e.preventDefault()
-      const newTodo = {
-        id: Date.now(),
-        text: this.text,
-        completed: false,
-        starred: false
-      }
-      this.$emit("add-todo", newTodo);
-      this.text = "";
+      // const newTodo = {
+      //   id: Date.now(),
+      //   text: this.text,
+      //   completed: false,
+      //   starred: false
+      // }
+      // this.$emit("add-todo", newTodo);
+      // this.text = "";
     }
   }
 }
@@ -41,12 +41,12 @@ export default {
   width: 50%;
 }
 
-.todoLabel {
+.searchLabel {
   font-size: 1.5em;
   font-family: 'Beth Ellen';
 }
 
-.todoInput {
+.searchInput {
   height: 40px;
   width: 300px;
   outline: none;

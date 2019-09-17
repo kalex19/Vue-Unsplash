@@ -1,0 +1,3 @@
+export const apikey = "c31b13a647f1a977c99b512f7c631743a41035daa2c69b19637ad2f78a900fd0";
+
+export const secretkey = "628c0097cdd6aec346e6b29f13a859515c171e797a4ea186b9a7d0d05375bdf0";
