@@ -1,6 +1,8 @@
 <template>
   <div class="image">
-  <image src="" alt="image from unsplash"></image>
+  <image :src=url :alt=tag></image>
+  <p>{{user.first_name}} {{user.last_name}}, {{user.instagram_username}}</p>
+  <i class="far fa-heart"><p>{{image.likes}}</p></i>
   </div>
 </template>
 
@@ -8,25 +10,24 @@
 export default {
   name: "Image",
   props: {
-    id: Number,
+    user: Object,
+    url: String,
+    tag: String,
     }
 }
 </script>
 
 <style>
 .image {
-  display: grid;
-  grid-template-columns: 10% 70% 10% 10%;
-  justify-content: space-evenly;
-  text-align: left;
-  width: 35%;
+  background-color: aqua;
 }
 
-input {
-  font-size: 2em;
-  outline: none;
-  background-color: transparent;
-  border-color: transparent;
+.fa-heart {
+  padding: 2%;
 }
 
+p {
+  font-size: 1em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 </style>

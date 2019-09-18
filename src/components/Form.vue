@@ -1,51 +1,37 @@
 <template>
   <main>
     <h1 class="header">Vue Finder</h1>
-    <form id="form" @submit="searchIamge">
-      <input type="text" v-model="text" placeholder="Search Images Here" id="search" class="searchInput">
+    <form id="form" @submit="findImages">
+      <input type="text" v-model="searchTerm" placeholder="Search Images Here" id="search" class="searchInput">
       <input type="submit" value="Vue Images" class="submitBtn"/>
     </form>
   </main>
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
-      images: []
+      searchTerm: ""
     }
   },
   methods: {
-    searchImages(e){
+    findImages: function(e){
       e.preventDefault()
-      // const newTodo = {
-      //   id: Date.now(),
-      //   text: this.text,
-      //   completed: false,
-      //   starred: false
-      // }
-      // this.$emit("add-todo", newTodo);
-      // this.text = "";
-           //   fetchImages = (searchTerm) => {
-  //     fetch(`https://api.unsplash.com/search/photos/?client_id=${apikey}}?page=1&query=${searchTerm}`)
-  //     .then(response => response.json())
-  //     .then(images => this.setState({images}))
-  //     .catch(error => this.setState({error}))
+      this.$emit("search-term", this.searchTerm);
+       this.searchTerm = "";
     }
-  }
+  },
 }
 </script>
 
 <style>
-
 #form {
   margin: 2% 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 80%;
+  width: 70%;
 }
 
 .header {
@@ -76,5 +62,4 @@ export default {
   background-color: pink;
   font-family:"Beth Ellen";
 }
-
 </style>

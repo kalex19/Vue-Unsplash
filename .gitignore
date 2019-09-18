@@ -20,4 +20,4 @@ yarn-error.log*
 *.sln
 *.sw?
 
-./src/Utils/apikey
+./src/Utils/apikey.js

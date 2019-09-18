@@ -1,32 +1,34 @@
 <template>
-  <section id="todoContainer">
-     <div v-bind:key="image.id">
-      <Todo v-bind="image"/>
-    </div>
-    <div v-bind:key="image.id">
-      <Todo v-bind="image"/>
-    </div>
-  </section>
+  <main id="imageContainer">
+    <h2 v-if="error">{error}</h2>
+    <section v-else v-for="image in images" v-bind:key="image.id">
+      <Image :url="image.urls.small" :tag="image.alt_description" :user="image.user"/>
+    </section>
+  </main>
 </template>
 
 <script>
 import Image from "./Image.vue";
-import apiKey from "../Utils/apikey";
 export default {
   name: "ImageContainer",
   components: {
     Image
   },
-  props:["images"],
+  props:{
+    images: Array,
+    error: String
+  },
 }
 </script>
 
 <style>
-
 #imageContainer {
-  margin: 15% 30%;
-  width: 60%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: space-evenly;
+  text-align: left;
+  margin: 2%;
+  width: 100%;
   transform: rotate(345deg);
 }
-
 </style>
