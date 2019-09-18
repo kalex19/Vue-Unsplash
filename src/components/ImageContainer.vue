@@ -18,14 +18,6 @@ export default {
     Image
   },
   props:["images"],
-  methods: {
-  fetchImages = () => {
-    fetch("")
-    .then(response => response.json())
-    .then(images => this.setState({images}))
-    .catch(error => this.setState({error}))
-}
-  }
 }
 </script>
 
