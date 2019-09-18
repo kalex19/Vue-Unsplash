@@ -1,18 +1,18 @@
 <template>
   <main id="imageContainer">
-    <h2 v-if="error">{error}</h2>
-    <section v-else v-for="image in images" v-bind:key="image.id">
-      <Image :url="image.urls.small" :tag="image.alt_description" :user="image.user"/>
+    <h2 class="error" v-if="error">{error}</h2>
+    <section class="images" v-else v-for="image in images" :key="image.id">
+      <Unsplash v-bind="image"/>
     </section>
   </main>
 </template>
 
 <script>
-import Image from "./Image.vue";
+import Unsplash from "./Unsplash.vue";
 export default {
   name: "ImageContainer",
   components: {
-    Image
+    Unsplash
   },
   props:{
     images: Array,
@@ -24,11 +24,24 @@ export default {
 <style>
 #imageContainer {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
   justify-content: space-evenly;
-  text-align: left;
+  margin: 5%;
+  width: 90%;
+}
+
+.error {
+  font-size: 1em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 5%;
+}
+
+.images {
   margin: 2%;
-  width: 100%;
-  transform: rotate(345deg);
+  border: black solid 5px;
+  background-color: pink;
+  padding: 5%;
+  border-radius: 10%;
+  height: fit-content;
 }
 </style>
