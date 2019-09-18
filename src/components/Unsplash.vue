@@ -30,7 +30,7 @@ export default {
   display: grid;
   grid-template-rows: 50% 50%;
   justify-content: space-evenly;
-  margin: 0 5%;
+  margin: 5%;
 }
 
 .fa-heart {
@@ -40,5 +40,6 @@ export default {
 p {
   font-size: 1em;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 1%;
 }
 </style>

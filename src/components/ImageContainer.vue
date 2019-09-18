@@ -24,7 +24,7 @@ export default {
 <style>
 #imageContainer {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: 25% 25% 25% 25%;
   justify-content: space-evenly;
   margin: 5%;
   width: 90%;
@@ -42,6 +42,6 @@ export default {
   background-color: pink;
   padding: 5%;
   border-radius: 10%;
-  height: fit-content;
+  /* height: fit-content; */
 }
 </style>
