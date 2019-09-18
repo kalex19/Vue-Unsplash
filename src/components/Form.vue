@@ -1,70 +1,65 @@
 <template>
-    <form id="form" @submit="searchIamge">
-      <label for="search" class="todoLabel">Search Images</label>
-      <input type="text" v-model="text" placeholder="search images here" id="search" class="searchInput">
-      <input type="submit" value="Vue Image" class="submitBtn"/>
+  <main>
+    <h1 class="header">Vue Finder</h1>
+    <form id="form" @submit="findImages">
+      <input type="text" v-model="searchTerm" placeholder="Search Images Here" id="search" class="searchInput">
+      <input type="submit" value="Vue Images" class="submitBtn"/>
     </form>
+  </main>
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
-      images: []
+      searchTerm: ""
     }
   },
   methods: {
-    searchImages(e){
+    findImages: function(e){
       e.preventDefault()
-      // const newTodo = {
-      //   id: Date.now(),
-      //   text: this.text,
-      //   completed: false,
-      //   starred: false
-      // }
-      // this.$emit("add-todo", newTodo);
-      // this.text = "";
+      this.$emit("search-term", this.searchTerm);
+       this.searchTerm = "";
     }
-  }
+  },
 }
 </script>
 
 <style>
-
 #form {
-  margin: 5%;
+  margin: 2% 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 50%;
+  width: 70%;
 }
 
-.searchLabel {
-  font-size: 1.5em;
-  font-family: 'Beth Ellen';
+.header {
+  margin: 2%;
+  font-size: 4em;
+  font-family: "Beth Ellen";
+  text-decoration: underline pink;
 }
 
 .searchInput {
-  height: 40px;
-  width: 300px;
+  height: 50px;
+  width: 350px;
   outline: none;
   font-size: 1.5em;
   background-color: transparent;
   border-color: transparent;
   border-bottom: 2px solid pink;
-  font-family: 'Beth Ellen';
+  font-family:  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding-left: 10px;
+  text-align: center;
 }
 
 .submitBtn {
-  height: 40px;
-  width: 100px;
+  height: 60px;
+  width: 200px;
   outline: none;
   font-size: 1.5em;
   background-color: pink;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family:"Beth Ellen";
 }
-
 </style>
